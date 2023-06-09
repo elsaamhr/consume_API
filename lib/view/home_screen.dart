@@ -22,9 +22,18 @@ class HomeScreen extends StatelessWidget {
               itemBuilder: (_, index) {
                 User user = snapshot.data![index];
                 return Card(
-                  child: ListTile(
-                    title: Text(user.name!),
-                    subtitle: Text(user.email!),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ListTile(
+                        title: Text(user.name!),
+                        subtitle: Text(user.email!),
+                      ),
+                      Text(
+                        user.address!.street!,
+                        textAlign: TextAlign.left,
+                      )
+                    ],
                   ),
                 );
               },
